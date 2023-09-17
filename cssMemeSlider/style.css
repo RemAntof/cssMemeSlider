@@ -18,10 +18,11 @@ body{
     grid-row: 1/2;
     grid-column-start: 1;
     grid-column-end: 3;
+    overflow: hidden;
 }
 .container-text-circles{
     grid-row: 2/2;
-    grid-column: 1/2;
+    grid-column: 1/3;
 }
 .circles{
     grid-row: 2/2;
@@ -35,17 +36,22 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease-in-out;
 }
 img{
     object-fit: contain;
     width: 100%;
     height: 100%;
-    /* transition: opacity 0.3s; */
+    /* transform: translateX(0%); */
+    transition: transform 1s ease-in-out;
 }
-img {
+.animation{
     display: none;
+    width: 100%;
+    height: 100%;
 }
+/* img {
+    display: none;
+} */
 .circles{
     margin-top: 30px;
     width: 50%;
@@ -99,25 +105,48 @@ p{
     display: none;
 }
 
-.radio-button:checked ~ .circles label:nth-child(1) {
+#circle1:checked ~ .circles label:nth-child(1),
+#circle2:checked ~ .circles label:nth-child(2),
+#circle3:checked ~ .circles label:nth-child(3),
+#circle4:checked ~ .circles label:nth-child(4),
+#circle5:checked ~ .circles label:nth-child(5),
+#circle6:checked ~ .circles label:nth-child(6) {
     background-color: aliceblue;
     /* margin-top: 100px; */
 }
-#circle1:checked ~ .image img:nth-child(1),
-#circle2:checked ~ .image img:nth-child(2),
-#circle3:checked ~ .image img:nth-child(3),
-#circle4:checked ~ .image img:nth-child(4),
-#circle5:checked ~ .image img:nth-child(5),
+#circle1:checked ~ .image img:nth-child(1){
+transform: translateX(280%);
+}
+#circle2:checked ~ .image img:nth-child(2){
+    transform: translateX(165%);
+}
+#circle3:checked ~ .image img:nth-child(3){
+    transform: translateX(50%);
+}
+#circle4:checked ~ .image img:nth-child(4){
+    transform: translateX(-50%);
+}
+#circle5:checked ~ .image img:nth-child(5){
+    transform: translateX(-200%);
+}
 #circle6:checked ~ .image img:nth-child(6){
+    transform: translateX(-222%);
+}
+#circle1:not(:checked) ~ .image img:nth-child(1),
+#circle2:not(:checked) ~ .image img:nth-child(2),
+#circle3:not(:checked) ~ .image img:nth-child(3),
+#circle4:not(:checked) ~ .image img:nth-child(4),
+#circle5:not(:checked) ~ .image img:nth-child(5),
+#circle6:not(:checked) ~ .image img:nth-child(6){
+    transform: translateX(500%);
+    /* display: none; */
+}
+/* #circle1:checked ~ .image .animation:nth-child(1),
+#circle2:checked ~ .image .animation:nth-child(2){
+    transform: translateX(100%);
     display: block;
 }
 
-
-/* #circle1:checked + .image img:nth-child(1),
-#circle2:checked ~ .image img:nth-child(2),
-#circle3:checked ~ .image img:nth-child(3),
-#circle4:checked ~ .image img:nth-child(4),
-#circle5:checked ~ .image img:nth-child(5),
-#circle6:checked ~ .image img:nth-child(6) {
-    display: block;
+#circle1:not(:checked) ~ .image .animation:nth-child(1){
+    transform: translateX(-100%);
 } */
